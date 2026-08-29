@@ -60,9 +60,27 @@ Add config load from conftest.py and create api_client fixture that return Sessi
 Create another fixture that use "browser_context" and returns playwright page.
 Update all web and api tests accordingly.
 
-I want support for both headless and headed mode. Tests should execute in CI mode in headless only. I want to execute the tests on the <<Github Actions>> on each pull request.
+For api_client fixture & browser_context fixture in confest.py; scope=function and not session; otherwise in same browser it will open multiple tabs.
+
+Also, take into account the requirement to execute web and api test cases in parallel.
+
+I want support for both headless and headed mode. 
+run the tests in default mode in headless mode.
+in case I want to run my tests in local in headed mode (using parser –headed), then I can pass command line argument and framework should support both mode of execution.
+
+Create .gitignore file.
+
+Tests should execute in CI mode in headless only. I want to execute the tests on the <<Github Actions>> on each pull request.
+
+To add support for generating the pytest-html report, update run-tests.yml github workflow file:
 
 Refer the web for the latest references.
 
 ===============================================================================
 Important Note for the students:: This is an template prompt. You can update text present under << >> based on your requirement.
+
+
+
+
+
+
