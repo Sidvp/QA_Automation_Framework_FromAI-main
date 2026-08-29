@@ -1,4 +1,4 @@
-name: Run Web & API Tests on PR
+name: Run Web & API Tests on Pull Request
 
 on:
   pull_request:
@@ -20,7 +20,7 @@ jobs:
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v4
         with:
-          python-version: ${{ matrix.python-version }}
+          python-version: '3.11'
 
       - name: Install dependencies
         run: |
@@ -34,12 +34,19 @@ jobs:
           source .venv/bin/activate
           playwright install --with-deps
 
-      - name: Run API Tests
+      - name: Run API Tests and Generate Report
         run: |
           source .venv/bin/activate
-          pytest -m api --tb=short --disable-warnings
+          pytest -m api --tb=short --disable-warnings --html=reports/api_report.html --self-contained-html
 
-      - name: Run Web Tests (Headless)
+      - name: Run Web Tests and Generate Report
         run: |
           source .venv/bin/activate
-          pytest -m web --tb=short --disable-warnings
+          pytest -m web --tb=short --disable-warnings --html=reports/web_report.html --self-contained-html
+
+      - name: Upload Test Reports
+        if: always() # Run this step no matter what
+        uses: actions/upload-artifact@v4
+        with:
+          name: pytest-html-reports
+          path: reports/
