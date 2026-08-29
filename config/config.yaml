@@ -1,0 +1,23 @@
+# Active environment selection
+env: qa
+
+# Environment-specific configuration
+environments:
+  # Quality Assurance environment settings
+  qa:
+    # Web application settings
+    base_url: "https://www.automationexercise.com"
+    api_url: "https://automationexercise.com/api"
+
+    # Database configuration
+    db:
+      host: "localhost"
+      port: 3306
+      user: "root"
+      password: "password"
+      database: "automation_db"
+
+    # Browser testing viewports
+    resolutions:
+      - [1920, 1080]
+      - [1366, 768]

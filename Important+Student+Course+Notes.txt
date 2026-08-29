@@ -1,0 +1,68 @@
+Github Repo Link:
+https://github.com/prateekautomationlabs/QA_Automation_Framework_FromAI.git
+
+To install requirements.txt
+pip install -r .\requirements.txt
+playwright install
+============================================================================
+
+How to Run Specific Type Tests
+
+pytest -m web
+pytest -m api
+
+To run all Tests
+pytest
+
+
+
+============================================================================
+
+Run Specific Tests (Headed Mode)
+pytest -m web --headed
+
+
+============================================================================
+
+Parallel Execution
+
+pytest -n auto -m web
+
+
+============================================================================
+Prompt
+*******
+
+Assume a role of qa solution architect having vast experience in <<Playwright, Python, pytest, requests, pytest-html , github actions, database validations(MySQL)>>
+
+You have given task to create a framework name <<"QA_Automation_Framework_FromAI">> which support <<web, api, database, different resolution>>. Refer the web for latest trends in the test automation.
+
+Create framework which is best as per industry standards, following best coding practices and is reusable and scalable.
+
+Want to start building it together step-by-step.
+
+We start with the foundation and add layers as we go together.
+
+Consider application under test is << https://www.automationexercise.com/ >> Refer the web for latest trends in the test automation.
+
+Please create test cases based on above shared web and api page classes, using pytest.
+Create a page object Model for <<web and api>> tests . Generate atleast 2-2 test cases for at each <5> pages/api categories in application.
+
+Don’t hardcode the application URL, fetch the url from settings.py file from config folder.
+
+Give contents for all pages in a folder. Please give requiremets.txt file.
+
+Add all required actions in classes which are latest and standard as per <<https://playwright.dev/python/docs/input>>
+
+and update api related actions in API classes from <<https://requests.readthedocs.io/en/latest/>>
+
+Add config load from conftest.py and create api_client fixture that return Session object and "browser_context" fixture that "yields" the playwright context.
+Create another fixture that use "browser_context" and returns playwright page.
+Update all web and api tests accordingly.
+
+I want support for both headless and headed mode. Tests should execute in CI mode in headless only. I want to execute the tests on the <<Github Actions>> on each pull request.
+
+Refer the web for the latest references.
+
+===============================================================================
+Important Note for the students:: This is an template prompt. You can update text present under << >> based on your requirement.
